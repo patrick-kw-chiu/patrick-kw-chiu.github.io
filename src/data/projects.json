@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Cache Cloud",
+    "tagline": "Fast serverless caching via HTTP endpoints, built on Cloudflare Workers, KV and Hono",
+    "imageUrl": "/projects/cash-cow.png",
+    "url": "https://github.com/patrick-kw-chiu/cache-cloud",
+    "notableTechStacks": [
+      "TypeScript",
+      "Cloudflare Workers",
+      "Serverless",
+      "Hono.js",
+      "Zod"
+    ],
+    "isLibrary": true,
+    "isExperimental": false
+  },
+  {
+    "title": "mongo-http.js",
+    "tagline": "A thin wrapper on Mongodb Atlas Data API using native fetch API",
+    "imageUrl": "/projects/mongo-http-2.js.png",
+    "url": "https://github.com/patrick-kw-chiu/mongo-http.js",
+    "notableTechStacks": ["TypeScript", "MongoDB", "Jest"],
+    "isLibrary": true,
+    "isExperimental": false
+  },
+  {
+    "title": "Medium Rare",
+    "tagline": "Medium scrapper and searcher for Chinese articles",
+    "imageUrl": "/projects/medium-rare-logo-square.png",
+    "url": "https://medium-rare.vercel.app",
+    "notableTechStacks": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Cloudflare Workers",
+      "Serverless",
+      "Hono.js"
+    ],
+    "isLibrary": false,
+    "isExperimental": false
+  },
+  {
+    "title": "SkyCube",
+    "tagline": "No-code *entirely* browser-based Machine Learning tool for tabular data",
+    "imageUrl": "/projects/skycube.svg",
+    "url": "https://skycube.app/",
+    "notableTechStacks": [
+      "JavaScript",
+      "React",
+      "Python",
+      "Pyodide",
+      "Scikit-learn"
+    ],
+    "isLibrary": false,
+    "isExperimental": true,
+    "experimentNote": "An attempt to see how far a browser can do in ML by using Pyodide to run Python, Scikit-learn and other data libraries - *entirely* within the browser"
+  },
+  {
+    "title": "<ActivityCalendarWidget />",
+    "tagline": "A GitHub Activity Calendar component for React, Vue, Svelte, and more - built on Mitosis",
+    "imageUrl": "/projects/activity-calendar-widget.png",
+    "url": "https://github.com/patrick-kw-chiu/activity-calendar-widget",
+    "notableTechStacks": ["JavaScript", "Motiosis"],
+    "isLibrary": true,
+    "isExperimental": true,
+    "experimentNote": "An attempt to explore Mitosis - a frontend framework aims to be universal (write once) and compile to every framework e.g. React.js and Svelte"
+  }
+]

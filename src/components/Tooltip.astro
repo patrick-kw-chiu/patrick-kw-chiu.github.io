@@ -1,0 +1,50 @@
+---
+interface Props {
+  text: string | number;
+  width?: string;
+  show?: boolean;
+}
+
+const { text, width, show = false } = Astro.props;
+---
+
+<div class=`tooltip ${show ? 'show' : ''}`>
+  <slot />
+  <div class="tooltip-text" style=`width: ${width}`>{text}</div>
+</div>
+<style is:global>
+  .tooltip {
+    display: inline-block;
+    position: relative;
+    z-index: 100;
+  }
+  .tooltip .tooltip-text {
+    display: block;
+    position: absolute;
+    text-align: center;
+
+    background-color: var(--color-black-3);
+    color: var(--color-black-8);
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition:
+      opacity 0.2s,
+      transform 0.01ms;
+
+    bottom: 0px;
+    left: 50%;
+    width: fit-content;
+
+    opacity: 0;
+    transform: translate(-99999px, 0);
+  }
+  .tooltip:hover,
+  .show {
+    z-index: 200;
+  }
+  .tooltip:hover > .tooltip-text,
+  .show > .tooltip-text {
+    opacity: 1;
+    transform: translate(-50%, 95%);
+  }
+</style>

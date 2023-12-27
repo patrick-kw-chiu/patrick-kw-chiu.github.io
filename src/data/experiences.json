@@ -1,0 +1,72 @@
+[
+  {
+    "company": "BenchSci",
+    "role": "Full Stack Developer",
+    "year": 2022,
+    "proportion": 2,
+    "start": 4,
+    "layer": 0,
+
+    "from": "Apr 2022",
+    "to": "Present",
+    "description": [
+      "Delivered/Led end-to-end projects from data (Postgres and Redis), search pipeline (Elasticsearch), backend (Python Django) to frontend (TypeScript Next.js)",
+      "Ensured the application robustness by improving and maintaining the code coverage with the testing suite in all levels (Pytest, Jest, React Testing Library, Cypress)",
+      "Frontend specialist of Reagent Selectors (company's flagship product) and worked closely with the web apps infra team"
+    ],
+    "url": "https://www.benchsci.com/",
+    "imageUrl": "/experiences/benchsci.webp"
+  },
+  {
+    "company": "Torche.io",
+    "role": "Technical Co-founder",
+    "year": 2019,
+    "start": 2,
+    "proportion": 4,
+    "layer": 1,
+
+    "from": "Aug 2019",
+    "to": "Present",
+    "description": [
+      "Designed and initiated Torche.io's code base with the MERN tech stack, which serves 10+ local schools, with 7000+ students and 300+ public users",
+      "Set up Torche.io cloud infrastructure, Git repository, and CICD pipeline with automated Playwright testing",
+      "Led the full stack development of the school portal to enable student attributes experiment and populate school performance data"
+    ],
+    "url": "https://torche.io/",
+    "imageUrl": "/experiences/torche.webp"
+  },
+  {
+    "company": "n/a",
+    "role": "Independent Full Stack Developer and Team Lead",
+    "year": 2021,
+    "proportion": 1,
+    "start": 3,
+    "layer": 0,
+
+    "from": "Feb 2021",
+    "to": "Apr 2022",
+    "description": [
+      "Cooperated with Deloitte Tech team and led the client website revamp project, with the scope of integrating Salesforce and developing custom Node.js APIs and CMS with strong SEO support and static site generation features",
+      "Cooperated with PwC Tech team and enhanced e-commerce features of the client website, e.g. shopping cart and payment",
+      "Maintained and enhanced the internal staff purchase system of Swatch, with the scope of migrating various countries staff purchase database into a centralized staff purchase database"
+    ]
+  },
+  {
+    "company": "Accenture",
+    "role": "Full Stack Developer and Team Lead",
+    "year": 2016,
+    "proportion": 3,
+    "start": 0,
+    "layer": 0,
+
+    "from": "Aug 2016",
+    "to": "Jan 2021",
+    "description": [
+      "Led/Worked on multiple full stack development project in the Airline, Transportation and Art and Cultural industry",
+      "Led the development team of 4 developers to develop the Chatbot Web App (Angular 2+ and Node/Express.js) for supporting the ticket (re)booking business scenario",
+      "Developed the Proof of concept (POC) of the Data Analytics Platform with Scikit-learn and Amazon ML service, which powers the customer analytics AI capability and serves API to the frontend interface"
+    ],
+    "url": "https://www.accenture.com/",
+    "imageUrl": "/experiences/accenture.webp"
+  }
+]

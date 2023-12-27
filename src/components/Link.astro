@@ -1,0 +1,22 @@
+---
+interface Props {
+  text?: string;
+  href: string;
+  style?: string;
+  hasUnderline?: boolean;
+}
+
+const { text, href, style = '', hasUnderline = true } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noreferrer"
+  style={`
+  ${hasUnderline ? '' : 'text-decoration: none; '}; 
+  ${style}
+  `}
+>
+  {text ?? <slot />}
+</a>

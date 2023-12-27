@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import About from '../components/About/About.astro';
+import Experiences from '../components/Experiences/Experiences.tsx';
+import Projects from '../components/Projects/Projects.astro';
+import Contact from '../components/Contact/Contact.astro';
+---
+
+<Layout title="Patrick Chiu">
+  <div id="about" class="page">
+    <About />
+  </div>
+  <div id="experience" class="page">
+    <div class="header-row">
+      <div
+        class="dash"
+        style="box-shadow: 0px 0px 2px var(--color-typescript);"
+      >
+      </div>
+      <h2 class="header">Work Experience</h2>
+    </div>
+    <div class="container">
+      <Experiences client:load />
+    </div>
+  </div>
+  <div id="projects" class="page">
+    <div class="header-row">
+      <div class="dash" style="box-shadow: 0px 0px 2px var(--color-nodejs);">
+      </div>
+      <h2 class="header">Side Projects</h2>
+    </div>
+    <div class="container">
+      <Projects />
+    </div>
+  </div>
+  <div id="contact" class="page">
+    <div class="header-row">
+      <div class="dash" style="box-shadow: 0px 0px 2px var(--color-angular);">
+      </div>
+      <h2 class="header">Get in Touch</h2>
+    </div>
+    <div class="container">
+      <Contact />
+    </div>
+  </div>
+</Layout>
+<style>
+  #about {
+    height: calc(100dvh - 58px - 8px - 8px);
+  }
+  .page {
+    position: relative;
+    width: 100%;
+    min-height: calc(100dvh - 58px - 8px - 8px);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-row {
+    position: sticky;
+    width: 100vw;
+    top: -8px;
+    padding: 0 12px 20px 0;
+    transform: translateX(calc(-1 * (100vw - 1200px) / 2 - 8px));
+    z-index: 300;
+    background: linear-gradient(
+      var(--color-black-8) 0%,
+      var(--color-black-8-70) 80%,
+      var(--color-black-8-10) 100%
+    );
+  }
+  .header-row .dash {
+    vertical-align: middle;
+    display: inline-block;
+    height: 2px;
+    width: calc((100vw - 1200px) / 2 + 8px + 36px);
+    background-color: var(--color-black-2);
+  }
+  .header-row .header {
+    vertical-align: middle;
+    display: inline-block;
+    padding-left: 6px;
+  }
+  @media screen and (max-width: 1240px) {
+    .header-row {
+      transform: translateX(-24px);
+    }
+    .header-row .dash {
+      width: 32px;
+    }
+  }
+
+  .container {
+    padding: 60px 12px 0;
+  }
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 36px 12px 0;
+    }
+  }
+
+  #contact {
+    min-height: auto;
+  }
+</style>
