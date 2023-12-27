@@ -77,13 +77,16 @@ import Link from '../Link.astro';
     </div>
     <div class="icons">
       <Link href="https://patrick-kw-chiu.medium.com/" hasUnderline={false}>
-        <Icon icon="medium" size="48px" />
+        <Icon icon="medium" size="48px" stroke="black" />
       </Link>
       <Link
         href="https://discord.com/users/693123668749975563/"
         hasUnderline={false}
       >
         <Icon icon="discord" size="48px" stroke="#7289da" />
+      </Link>
+      <Link href="https://github.com/patrick-kw-chiu/" hasUnderline={false}>
+        <Icon icon="github" size="48px" stroke="black" />
       </Link>
       <Link
         href="https://www.linkedin.com/in/patrick-chiu/"
@@ -133,18 +136,26 @@ import Link from '../Link.astro';
   .content {
     position: absolute;
     top: 0;
-    padding: 72px 60px 0;
+    padding: 72px 72px 0;
     width: 100%;
     font-size: var(--font-size-h3);
     font-weight: 600;
   }
   .content .icons {
-    padding-top: 48px;
+    padding-top: 60px;
   }
   .content .icons a {
     text-decoration: none;
   }
-  @media screen and (min-width: 500px) and (max-width: 700px) {
+  @media screen and (min-width: 600px) and (max-width: 700px) {
+    .content {
+      padding: 48px 48px 0;
+    }
+    .content .icons {
+      padding-top: 48px;
+    }
+  }
+  @media screen and (min-width: 500px) and (max-width: 600px) {
     .content {
       padding: 36px 36px 0;
     }
