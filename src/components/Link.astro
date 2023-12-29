@@ -16,7 +16,5 @@ const { text, href, style = '', hasUnderline = true } = Astro.props;
   style={`
   ${hasUnderline ? '' : 'text-decoration: none; '}; 
   ${style}
-  `}
+  `}>{text ?? <slot />}</a
 >
-  {text ?? <slot />}
-</a>

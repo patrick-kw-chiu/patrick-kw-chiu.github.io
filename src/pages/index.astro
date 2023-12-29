@@ -60,7 +60,7 @@ import Contact from '../components/Contact/Contact.astro';
     position: sticky;
     width: 100vw;
     top: -8px;
-    padding: 0 12px 20px 0;
+    padding: 8px 12px 20px 8px;
     transform: translateX(calc(-1 * (100vw - 1200px) / 2 - 8px));
     z-index: 300;
     background: linear-gradient(
@@ -87,6 +87,11 @@ import Contact from '../components/Contact/Contact.astro';
     }
     .header-row .dash {
       width: 32px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .header-row {
+      padding-bottom: 8px;
     }
   }
 

@@ -18,6 +18,18 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-59JQDQSWTG"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-59JQDQSWTG');
+    </script>
   </head>
   <body>
     <div id="background">
@@ -222,7 +234,6 @@ const { title } = Astro.props;
   #content {
     box-sizing: border-box;
     background-color: var(--color-black-8);
-    padding: 8px;
   }
   #backdrop {
     position: relative;
