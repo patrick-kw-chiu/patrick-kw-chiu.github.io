@@ -1,10 +1,17 @@
 ---
+interface Nav {
+  url: string;
+  title: string;
+  dotColor: string;
+}
+
 interface Props {
   title: string;
   description: string;
+  navs: Nav[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, navs } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,22 +39,19 @@ const { title, description } = Astro.props;
   <body>
     <div id="background">
       <nav id="menu">
-        <a href="#about">
-          <div class="dot" style="background: var(--color-javascript)"></div>
-          <div>About</div>
-        </a>
-        <a href="#experience">
-          <div class="dot" style="background: var(--color-typescript)"></div>
-          <div>Experience</div>
-        </a>
-        <a href="#projects">
-          <div class="dot" style="background: var(--color-nodejs)"></div>
-          <div>Projects</div>
-        </a>
-        <a href="#contact">
-          <div class="dot" style="background: var(--color-angular)"></div>
-          <div>Contact</div>
-        </a>
+        {
+          navs.map(({ url, title, dotColor }) => {
+            return (
+              <a href={url}>
+                <div
+                  class="dot"
+                  style={`background: var(--color-${dotColor})`}
+                />
+                <div>{title}</div>
+              </a>
+            );
+          })
+        }
       </nav>
       <div id="backdrop">
         <div id="char">P</div>
@@ -213,6 +217,7 @@ const { title, description } = Astro.props;
   }
 
   #char {
+    padding: 6px 0 0 6px;
     font-size: var(--font-size-h3);
     animation: char-animation 1s ease 0s 2 forwards;
   }

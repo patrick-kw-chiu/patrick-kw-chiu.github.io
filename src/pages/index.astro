@@ -9,6 +9,28 @@ import Contact from '../components/Contact/Contact.astro';
 <Layout
   title="Patrick Chiu"
   description="Patrick Chiu is a full stack developer specialized in building web platforms and SaaS."
+  navs={[
+    {
+      url: '#about',
+      title: 'About',
+      dotColor: 'javascript',
+    },
+    {
+      url: '#experience',
+      title: 'Experience',
+      dotColor: 'typescript',
+    },
+    {
+      url: '#projects',
+      title: 'Project',
+      dotColor: 'nodejs',
+    },
+    {
+      url: '#contact',
+      title: 'Contact',
+      dotColor: 'angular',
+    },
+  ]}
 >
   <div id="about" class="page">
     <About />
