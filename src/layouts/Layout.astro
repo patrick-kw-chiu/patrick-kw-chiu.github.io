@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Nav {
   url: string;
   title: string;
@@ -9,9 +11,11 @@ interface Props {
   title: string;
   description: string;
   navs: Nav[];
+  hasAnimation?: boolean;
 }
 
-const { title, description, navs } = Astro.props;
+const { title, description, navs, hasAnimation = false } = Astro.props;
+const className = hasAnimation ? 'has-animation' : '';
 ---
 
 <!doctype html>
@@ -23,6 +27,7 @@ const { title, description, navs } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
     <script
       type="text/partytown"
       src="https://www.googletagmanager.com/gtag/js?id=G-59JQDQSWTG"></script>
@@ -37,8 +42,8 @@ const { title, description, navs } = Astro.props;
     </script>
   </head>
   <body>
-    <div id="background">
-      <nav id="menu">
+    <div id="background" class={className}>
+      <nav id="menu" class={className}>
         {
           navs.map(({ url, title, dotColor }) => {
             return (
@@ -53,253 +58,264 @@ const { title, description, navs } = Astro.props;
           })
         }
       </nav>
-      <div id="backdrop">
-        <div id="char">P</div>
-      </div>
-      <div id="content">
+      {
+        hasAnimation ? (
+          <div id="backdrop">
+            <div id="char">P</div>
+          </div>
+        ) : null
+      }
+      <div id="content" class={className}>
         <slot />
         <!-- <div id="footer"></div> -->
       </div>
     </div>
+    <style is:global>
+      :root {
+        --color-black-2: rgb(44, 44, 44);
+        --color-black-3: rgb(85, 85, 85);
+        --color-black-4: rgb(120, 120, 120);
+        --color-black-5: rgb(170, 170, 170);
+        --color-black-5-20: rgba(170, 170, 170, 0.2);
+        --color-black-7: rgb(222, 222, 222);
+        --color-black-8: rgb(234, 234, 234);
+        --color-black-8-70: rgba(234, 234, 234, 0.7);
+        --color-black-8-10: rgba(234, 234, 234, 0.1);
+
+        --color-javascript: #f0db4f;
+        --color-typescript: #007acc;
+        --color-nodejs: #68a063;
+        --color-angular: #dd1b16;
+
+        --font-size-h1: 3rem;
+        --font-size-h2: 2.25rem;
+        --font-size-h3: 1.5rem;
+        --font-size-h4: 1.125rem;
+        --font-size-p2: 0.875rem;
+        --font-size-p3: 0.75rem;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+      }
+      a {
+        text-decoration: underline;
+        text-decoration-style: dashed;
+      }
+      h1 {
+        font-size: var(--font-size-h1);
+        font-weight: 700;
+        margin: 0;
+        padding: 8px 0;
+      }
+      h2 {
+        font-size: var(--font-size-h2);
+        font-weight: 700;
+        margin: 0;
+        padding: 6px 0;
+      }
+      h3 {
+        font-size: var(--font-size-h3);
+        font-weight: 600;
+        margin: 0;
+        padding: 6px 0;
+      }
+      h4 {
+        font-size: var(--font-size-h4);
+        font-weight: 600;
+        margin: 0;
+        padding: 6px 0;
+      }
+      p {
+        color: var(--color-black-2);
+        margin: 0;
+        padding: 6px 0;
+      }
+      .text-label {
+        color: var(--color-black-4);
+      }
+      div {
+        scroll-behavior: smooth;
+      }
+      .tagline {
+        text-align: center;
+        padding: 0 0 60px;
+        /* font-weight: 200; */
+      }
+      @media screen and (max-width: 768px) {
+        .tagline {
+          padding: 0 0 24px;
+        }
+      }
+
+      #background {
+        position: relative;
+        background-color: var(--color-black-2);
+        width: 100vw;
+        height: 100dvh;
+        padding: calc(50dvh - 24px) calc(50vw - 24px);
+      }
+      #background.has-animation {
+        animation: background-animation 1s ease 2s 1 forwards;
+      }
+      @keyframes background-animation {
+        0% {
+          padding: calc(50dvh - 24px) calc(50vw - 24px);
+        }
+        100% {
+          padding: 58px 8px 8px;
+        }
+      }
+
+      #menu {
+        position: fixed;
+        top: 16px;
+        right: 24px;
+        color: var(--color-black-8);
+      }
+      #menu.has-animation {
+        opacity: 0;
+        animation: menu-animation 1s ease 2s 1 forwards;
+      }
+      @keyframes menu-animation {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      #menu > a {
+        color: var(--color-black-8);
+        margin-left: 18px;
+        text-decoration: none;
+      }
+      #menu > a:hover > div {
+        text-decoration: underline;
+      }
+      #menu > a > div {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 600;
+      }
+      #menu > a > .dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        margin-right: 4px;
+      }
+      @media screen and (max-width: 768px) {
+        #menu {
+          left: 0;
+          width: calc(100% - 8px);
+          text-align: center;
+        }
+        #menu > a {
+          margin-left: 8px;
+        }
+        #menu > a > .dot {
+          margin-right: 2px;
+        }
+        #menu > a > div {
+          font-weight: 400;
+        }
+      }
+
+      #char {
+        padding: 6px 0 0 6px;
+        font-size: var(--font-size-h3);
+        animation: char-animation 1s ease 0s 2 forwards;
+      }
+      @keyframes char-animation {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      #backdrop,
+      #content {
+        box-sizing: border-box;
+        background-color: var(--color-black-8);
+      }
+      #backdrop {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        z-index: 20;
+        box-shadow: 4px 4px 0px var(--color-black-4);
+        animation: backdrop-animation 2s ease 2s 1 forwards;
+      }
+      @keyframes backdrop-animation {
+        0% {
+          border-radius: 4px;
+        }
+        50% {
+          border-radius: 24px;
+          opacity: 1;
+        }
+        99.999% {
+          border-radius: 24px;
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        100% {
+          transform: translate(-99999px, -99999px);
+        }
+      }
+
+      #content {
+        position: absolute;
+        top: 58px;
+        left: 8px;
+        width: calc(100% - 8px - 8px);
+        height: calc(100dvh - 58px - 8px);
+        border-radius: 24px;
+        z-index: 10;
+        overflow-y: scroll;
+      }
+      #content.has-animation {
+        opacity: 0;
+        overflow-y: hidden;
+        transform: translate(-99999px, -99999px);
+        animation: content-animation 0s ease 3s 1 forwards;
+      }
+      #content::-webkit-scrollbar {
+        display: none;
+      }
+      @keyframes content-animation {
+        0% {
+          opacity: 0;
+        }
+        99.999% {
+          opacity: 1;
+          overflow-y: hidden;
+          transform: translate(-99999px, -99999px);
+        }
+        100% {
+          opacity: 1;
+          overflow-y: scroll;
+          transform: translate(0px, 0px);
+        }
+      }
+
+      #footer {
+        border-radius: 24px;
+        height: 300px;
+        background-color: var(--color-black-2);
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  :root {
-    --color-black-2: rgb(44, 44, 44);
-    --color-black-3: rgb(85, 85, 85);
-    --color-black-4: rgb(120, 120, 120);
-    --color-black-5: rgb(170, 170, 170);
-    --color-black-5-20: rgba(170, 170, 170, 0.2);
-    --color-black-7: rgb(222, 222, 222);
-    --color-black-8: rgb(234, 234, 234);
-    --color-black-8-70: rgba(234, 234, 234, 0.7);
-    --color-black-8-10: rgba(234, 234, 234, 0.1);
-
-    --color-javascript: #f0db4f;
-    --color-typescript: #007acc;
-    --color-nodejs: #68a063;
-    --color-angular: #dd1b16;
-
-    --font-size-h1: 3rem;
-    --font-size-h2: 2.25rem;
-    --font-size-h3: 1.5rem;
-    --font-size-h4: 1.125rem;
-    --font-size-p2: 0.875rem;
-    --font-size-p3: 0.75rem;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  html,
-  body {
-    font-family: system-ui, sans-serif;
-    margin: 0;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-  }
-  a {
-    text-decoration: underline;
-    text-decoration-style: dashed;
-  }
-  h1 {
-    font-size: var(--font-size-h1);
-    font-weight: 700;
-    margin: 0;
-    padding: 8px 0;
-  }
-  h2 {
-    font-size: var(--font-size-h2);
-    font-weight: 700;
-    margin: 0;
-    padding: 6px 0;
-  }
-  h3 {
-    font-size: var(--font-size-h3);
-    font-weight: 600;
-    margin: 0;
-    padding: 6px 0;
-  }
-  h4 {
-    font-size: var(--font-size-h4);
-    font-weight: 600;
-    margin: 0;
-    padding: 6px 0;
-  }
-  p {
-    color: var(--color-black-2);
-    margin: 0;
-    padding: 6px 0;
-  }
-  .text-label {
-    color: var(--color-black-4);
-  }
-  div {
-    scroll-behavior: smooth;
-  }
-  .tagline {
-    text-align: center;
-    padding: 0 0 60px;
-    /* font-weight: 200; */
-  }
-  @media screen and (max-width: 768px) {
-    .tagline {
-      padding: 0 0 24px;
-    }
-  }
-
-  #background {
-    position: relative;
-    background-color: var(--color-black-2);
-    width: 100vw;
-    height: 100dvh;
-    padding: calc(50dvh - 24px) calc(50vw - 24px);
-    animation: background-animation 1s ease 2s 1 forwards;
-  }
-  @keyframes background-animation {
-    0% {
-      padding: calc(50dvh - 24px) calc(50vw - 24px);
-    }
-    100% {
-      padding: 58px 8px 8px;
-    }
-  }
-
-  #menu {
-    position: fixed;
-    top: 16px;
-    right: 24px;
-    color: var(--color-black-8);
-    opacity: 0;
-    animation: menu-animation 1s ease 2s 1 forwards;
-  }
-  @keyframes menu-animation {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  #menu > a {
-    color: var(--color-black-8);
-    margin-left: 18px;
-    text-decoration: none;
-  }
-  #menu > a:hover > div {
-    text-decoration: underline;
-  }
-  #menu > a > div {
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 600;
-  }
-  #menu > a > .dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 2px;
-    margin-right: 4px;
-  }
-  @media screen and (max-width: 768px) {
-    #menu {
-      left: 0;
-      width: calc(100% - 8px);
-      text-align: center;
-    }
-    #menu > a {
-      margin-left: 8px;
-    }
-    #menu > a > .dot {
-      margin-right: 2px;
-    }
-    #menu > a > div {
-      font-weight: 400;
-    }
-  }
-
-  #char {
-    padding: 6px 0 0 6px;
-    font-size: var(--font-size-h3);
-    animation: char-animation 1s ease 0s 2 forwards;
-  }
-  @keyframes char-animation {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  #backdrop,
-  #content {
-    box-sizing: border-box;
-    background-color: var(--color-black-8);
-  }
-  #backdrop {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    z-index: 20;
-    box-shadow: 4px 4px 0px var(--color-black-4);
-    animation: backdrop-animation 2s ease 2s 1 forwards;
-  }
-  @keyframes backdrop-animation {
-    0% {
-      border-radius: 4px;
-    }
-    50% {
-      border-radius: 24px;
-      opacity: 1;
-    }
-    99.999% {
-      border-radius: 24px;
-      opacity: 0;
-      transform: translate(0px, 0px);
-    }
-    100% {
-      transform: translate(-99999px, -99999px);
-    }
-  }
-
-  #content {
-    position: absolute;
-    top: 58px;
-    left: 8px;
-    width: calc(100% - 8px - 8px);
-    height: calc(100dvh - 58px - 8px);
-    border-radius: 24px;
-    z-index: 10;
-    opacity: 0;
-    overflow-y: hidden;
-    transform: translate(-99999px, -99999px);
-    animation: content-animation 0s ease 3s 1 forwards;
-  }
-  #content::-webkit-scrollbar {
-    display: none;
-  }
-  @keyframes content-animation {
-    0% {
-      opacity: 0;
-    }
-    99.999% {
-      opacity: 1;
-      overflow-y: hidden;
-      transform: translate(-99999px, -99999px);
-    }
-    100% {
-      opacity: 1;
-      overflow-y: scroll;
-      transform: translate(0px, 0px);
-    }
-  }
-
-  #footer {
-    border-radius: 24px;
-    height: 300px;
-    background-color: var(--color-black-2);
-  }
-</style>
