@@ -5,31 +5,31 @@ import Project from './Project.astro';
 ---
 
 <div>
-  <h3 class="tagline">
-    Excuses to escape the boring life and claim to be productive 🔥
-  </h3>
-  <div class="projects">
-    {
-      projects.map((project) => {
-        return <Project {...project} />;
-      })
-    }
-  </div>
+	<h3 class="tagline">
+		To try out new features and contribute to the world 🔥
+	</h3>
+	<div class="projects">
+		{
+			projects.map((project) => {
+				return <Project {...project} />;
+			})
+		}
+	</div>
 </div>
 
 <style>
-  .projects {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    gap: 1rem;
-    padding: 0 0 60px;
-  }
+	.projects {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: auto;
+		gap: 1rem;
+		padding: 0 0 60px;
+	}
 
-  @media screen and (max-width: 768px) {
-    .projects {
-      display: block;
-    }
-  }
+	@media screen and (max-width: 768px) {
+		.projects {
+			display: block;
+		}
+	}
 </style>

@@ -6,132 +6,130 @@ import Tooltip from '../Tooltip.astro';
 ---
 
 <div class="flex-container">
-  <div class="left">
-    <div class="text-label">Hi, this is</div>
-    <h1>Patrick Chiu.</h1>
-    <p>
-      I'm a full stack developer specialized in building web platforms and SaaS.
-      I have worked at companies of all variaties e.g. <Link
-        href="https://www.accenture.com/"
-        text="large IT consulting firm"
-      />, <Link
-        href="https://www.benchsci.com/"
-        text="preclinical R&D AI solutions start up"
-      /> and co-founded an <Link
-        href="https://www.torche.io/"
-        text="EdTech data analytics start up"
-      />.
-    </p>
-    <p>
-      I'm in love with web technology. In my spare time, I also build <Link
-        href="https://skycube.app/"
-        text="free tools"
-      />, <Link
-        href="https://github.com/patrick-kw-chiu/mongo-http.js"
-        text="open source"
-      />
-      <Link
-        href="https://github.com/patrick-kw-chiu/cache-cloud"
-        text="projects"
-      /> and write
-      <Link
-        href="https://patrick-kw-chiu.medium.com/"
-        text="technical blogs"
-      />.
-    </p>
-    <div class="tech-stacks">
-      <div>
-        <Tooltip text="JavaScript">
-          <Icon icon="javascript" size="48px" />
-        </Tooltip>
-        <Tooltip text="TypeScript">
-          <Icon icon="typescript" size="48px" />
-        </Tooltip>
-        <Tooltip text="React.js">
-          <Icon icon="react" size="48px" />
-        </Tooltip>
-        <Tooltip text="Next.js">
-          <Icon icon="nextjs" size="48px" />
-        </Tooltip>
-        <Tooltip text="Node.js">
-          <Icon icon="nodejs" size="48px" />
-        </Tooltip>
-        <Tooltip text="Python">
-          <Icon icon="python" size="48px" />
-        </Tooltip>
-        <Tooltip text="MongoDB">
-          <Icon icon="mongodb" size="48px" />
-        </Tooltip>
-        <Tooltip text="Lit">
-          <Icon icon="lit" size="48px" />
-        </Tooltip>
-        <Tooltip text="and more..." width="98px">
-          <Icon icon="more" size="48px" />
-        </Tooltip>
-      </div>
-    </div>
-  </div>
-  <div class="right">
-    <Avatar />
-  </div>
+	<div class="left">
+		<div class="text-label">Hi, this is</div>
+		<h1>Patrick Chiu.</h1>
+		<p>
+			As a full stack developer specializing in building web platforms and SaaS
+			for {Math.floor(new Date().getFullYear() - 2016)} years, I have worked at companies
+			ranging from <Link
+				href="https://www.accenture.com/"
+				text="global IT consulting firm"
+			/> to <Link
+				href="https://www.benchsci.com/"
+				text="Canada-based pharmaceutical AI solutions company"
+			/>, and have co-founded an <Link
+				href="https://www.torche.io/"
+				text="EdTech analytics start up"
+			/>.
+		</p>
+		<p>
+			I am passionate about web technologies and enjoy building <Link
+				href="https://github.com/patrick-kw-chiu/mongo-http.js"
+				text="open source"
+			/>
+			<Link
+				href="https://github.com/patrick-kw-chiu/cache-cloud"
+				text="projects"
+			/> and <Link href="https://skycube.app/" text="free tools" /> as well as writing
+			<Link
+				href="https://patrick-kw-chiu.medium.com/"
+				text="technical blogs"
+			/>.
+		</p>
+		<div class="tech-stacks">
+			<div>
+				<Tooltip text="JavaScript">
+					<Icon icon="javascript" size="48px" />
+				</Tooltip>
+				<Tooltip text="TypeScript">
+					<Icon icon="typescript" size="48px" />
+				</Tooltip>
+				<Tooltip text="React.js">
+					<Icon icon="react" size="48px" />
+				</Tooltip>
+				<Tooltip text="Next.js">
+					<Icon icon="nextjs" size="48px" />
+				</Tooltip>
+				<Tooltip text="Node.js">
+					<Icon icon="nodejs" size="48px" />
+				</Tooltip>
+				<Tooltip text="Python">
+					<Icon icon="python" size="48px" />
+				</Tooltip>
+				<Tooltip text="MongoDB">
+					<Icon icon="mongodb" size="48px" />
+				</Tooltip>
+				<Tooltip text="Lit">
+					<Icon icon="lit" size="48px" />
+				</Tooltip>
+				<Tooltip text="and more..." width="98px">
+					<Icon icon="more" size="48px" />
+				</Tooltip>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<Avatar />
+	</div>
 </div>
 
 <style>
-  .flex-container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .flex-container > .left {
-    max-width: 600px;
-    padding-left: 28px;
-    width: 72%;
-  }
-  .flex-container > .left > div {
-    line-height: 1.35;
-  }
-  .flex-container > .right {
-    width: 400px;
-    padding-right: 28px;
-    width: 28%;
-  }
-  @media screen and (max-width: 768px) {
-    .flex-container {
-      flex-direction: column-reverse;
-      align-items: center;
-      justify-content: center;
-    }
-    .flex-container > .left {
-      width: 100%;
-      padding: 0 18px 24px;
-    }
-    .flex-container > .right {
-      width: 75%;
-      min-width: 200px;
-      padding: 0 24px;
-    }
-  }
+	.flex-container {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+	.flex-container > .left {
+		max-width: 600px;
+		padding-left: 28px;
+		width: 72%;
+	}
+	.flex-container > .left > div {
+		line-height: 1.35;
+	}
+	.flex-container > .right {
+		width: 400px;
+		padding-right: 28px;
+		width: 28%;
+	}
+	@media screen and (max-width: 768px) {
+		.flex-container {
+			flex-direction: column-reverse;
+			align-items: center;
+			justify-content: center;
+		}
+		.flex-container > .left {
+			width: 100%;
+			padding: 0 18px 24px;
+		}
+		.flex-container > .right {
+			width: 75%;
+			min-width: 200px;
+			padding: 0 24px;
+		}
+	}
 
-  .tech-stacks {
-    padding-top: 12px;
-  }
-  @media screen and (max-width: 768px) {
-    h1 {
-      padding: 0;
-    }
-    .tech-stacks {
-      width: 100%;
-      height: 56px;
-      overflow-x: scroll;
-      overflow-y: hidden;
-    }
-    .tech-stacks::-webkit-scrollbar {
-      display: none;
-    }
+	.tech-stacks {
+		padding-top: 12px;
+	}
+	@media screen and (max-width: 768px) {
+		h1 {
+			padding: 0;
+		}
+		.tech-stacks {
+			width: 100%;
+			height: 56px;
+			overflow-x: scroll;
+			overflow-y: hidden;
+		}
+		.tech-stacks::-webkit-scrollbar {
+			display: none;
+		}
 
-    .tech-stacks > div {
-      width: max-content;
-    }
-  }
+		.tech-stacks > div {
+			width: max-content;
+		}
+	}
 </style>
