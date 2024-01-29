@@ -131,8 +131,8 @@ const Experience = () => {
   return (
     <>
       <h3 className="tagline">
-        {Math.floor(new Date().getFullYear() - 2016)} years building web
-        products and platforms, for fun and for a living
+        {Math.floor(new Date().getFullYear() - 2016)} years of building web
+        products and platforms, for a living and for fun
       </h3>
       <div className={Styles.experiences} style={{ zIndex: 100 }}>
         {mainBranchExperiences.map(renderExpCommit)}
