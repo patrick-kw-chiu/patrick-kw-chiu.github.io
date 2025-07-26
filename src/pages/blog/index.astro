@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await Astro.glob('./*.md');
+const tags = allPosts.flatMap(({ frontmatter }) => frontmatter.tags);
+console.log({ allPosts, tags });
+---
+
+<BaseLayout
+	title="Blog | Patrick Chiu"
+	description="Explore the technicals of full stack web development. From front-end frameworks to serverless caching. Journaling my experience in popular and relatively niche tech."
+	navs={[
+		{
+			url: '/',
+			title: 'Homepage',
+			dotColor: 'typescript',
+		},
+	]}
+>
+	<div id="posts">
+		{
+			allPosts.map((post) => {
+				console.log({ post });
+				return (
+					<div class="post">
+						<div class="info">
+							<a href={post.url}>
+								<div class="title">{post.frontmatter.title}</div>
+							</a>
+							<div class="subtitle">{post.frontmatter.subtitle}</div>
+							<div class="date">{post.frontmatter.date}</div>
+							{/* <div set:html={post.compiledContent()} /> */}
+						</div>
+						<img src={post.frontmatter.heroImagePath} />
+					</div>
+				);
+			})
+		}
+	</div>
+</BaseLayout>
+<style>
+	#posts {
+		padding: 24px;
+		margin: 0 auto;
+		position: relative;
+		display: flex;
+		max-width: 860px;
+
+		.post {
+			position: relative;
+			display: flex;
+			gap: 1rem;
+
+			.info {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 1rem;
+
+				a {
+					text-decoration: none !important;
+
+					:hover {
+						text-decoration: underline !important;
+					}
+				}
+
+				.title {
+					font-size: 24px !important;
+					font-weight: 600;
+					color: #242424 !important;
+				}
+
+				.subtitle {
+					font-size: 16px !important;
+					color: rgba(0, 0, 0, 0.8);
+					font-weight: 300;
+				}
+
+				.date {
+					font-size: 14px !important;
+					color: rgba(0, 0, 0, 0.6);
+					font-weight: 200;
+				}
+			}
+
+			img {
+				aspect-ratio: 4/3;
+				display: block;
+				max-width: 240px;
+				margin: 0 auto;
+				object-fit: contain;
+				padding: 1rem;
+				border-radius: 8px;
+				background-color: var(--color-black-7);
+			}
+		}
+	}
+</style>

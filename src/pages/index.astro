@@ -1,12 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import About from '../components/About/About.astro';
 import Experiences from '../components/Experiences/Experiences.tsx';
 import Projects from '../components/Projects/Projects.astro';
-import Contact from '../components/Contact/Contact.astro';
 ---
 
-<Layout hasAnimation={true}>
+<BaseLayout hasAnimation={true}>
 	<div id="about" class="page">
 		<About />
 	</div>
@@ -43,7 +42,7 @@ import Contact from '../components/Contact/Contact.astro';
 			<Contact />
 		</div>
 	</div> -->
-</Layout>
+</BaseLayout>
 <style>
 	#about {
 		height: calc(100dvh - 58px - 8px - 8px);

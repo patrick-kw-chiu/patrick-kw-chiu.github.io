@@ -3,6 +3,8 @@ import react from '@astrojs/react';
 
 import partytown from '@astrojs/partytown';
 
+import { externalLink } from './plugin/externalLink';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -15,4 +17,12 @@ export default defineConfig({
     }),
   ],
   site: 'https://patrick-kw-chiu.github.io',
+  markdown: {
+    rehypePlugins: [
+      [
+        externalLink,
+        { domains: ['patrick-kw-chiu.github.io', 'localhost:4321'] },
+      ],
+    ],
+  },
 });

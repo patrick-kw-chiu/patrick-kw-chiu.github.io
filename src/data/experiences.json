@@ -1,14 +1,32 @@
 [
   {
+    "company": "Priceline (Booking Holdings)",
+    "role": "Senior Software Engineer",
+    "year": 2025,
+    "proportion": 1,
+    "start": 3,
+    "layer": 0,
+
+    "from": "Feb 2025",
+    "to": "Present",
+    "description": [
+      "Led/delivered the frontend and API layer feature implementations of the travel insurance business, with a monorepo frontend (React.js/Next.js) and API layer (Node.js, GraphQL)",
+      "Refactor the legacy travel insurance module as a standalone module to be embedded to various business apps and eliminate legacy dependencies.",
+      "Rapid A/B testing to optimize the insurance checkout experience with annualized gross incremental revenue of ~USD 1.5M"
+    ],
+    "url": "https://priceline.com//",
+    "imageUrl": "/experiences/priceline.svg"
+  },
+  {
     "company": "BenchSci",
     "role": "Full Stack Developer",
     "year": 2022,
-    "proportion": 2,
+    "proportion": 1,
     "start": 4,
     "layer": 0,
 
     "from": "Apr 2022",
-    "to": "Present",
+    "to": "Nov 2024",
     "description": [
       "Delivered/Led end-to-end projects from data (Postgres and Redis), search pipeline (Elasticsearch), backend (Python Django) to frontend (TypeScript Next.js)",
       "Ensured the application robustness by improving and maintaining the code coverage with the testing suite in all levels (Pytest, Jest, React Testing Library, Cypress)",
@@ -21,12 +39,12 @@
     "company": "Torche.io",
     "role": "Technical Co-founder",
     "year": 2019,
-    "start": 2,
-    "proportion": 4,
-    "layer": 1,
+    "start": 1,
+    "proportion": 1,
+    "layer": 0,
 
     "from": "Aug 2019",
-    "to": "Present",
+    "to": "Apr 2022",
     "description": [
       "Designed and initiated Torche.io's code base with the MERN tech stack, which serves 10+ local schools, with 7000+ students and 300+ public users",
       "Set up Torche.io cloud infrastructure, Git repository, and CICD pipeline with automated Playwright testing",
@@ -41,7 +59,7 @@
     "year": 2021,
     "proportion": 1,
     "start": 3,
-    "layer": 0,
+    "layer": 1,
 
     "from": "Feb 2021",
     "to": "Apr 2022",
@@ -55,7 +73,7 @@
     "company": "Accenture",
     "role": "Full Stack Developer and Team Lead",
     "year": 2016,
-    "proportion": 3,
+    "proportion": 1,
     "start": 0,
     "layer": 0,
 

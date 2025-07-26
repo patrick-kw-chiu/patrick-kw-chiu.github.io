@@ -1,0 +1,110 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+import { type LayoutProps } from '../types/types';
+
+type Props = LayoutProps & {
+	frontmatter: {
+		heroImagePath: string;
+		title: string;
+		subtitle: string;
+	};
+};
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout navs={frontmatter.navs ?? []}>
+	<div id="blog-container">
+		<div id="blog-hero-image-container">
+			<img src={frontmatter.heroImagePath} />
+		</div>
+		<div id="blog-content-container">
+			<h3>{frontmatter.title}</h3>
+			<h4>{frontmatter.subtitle}</h4>
+			<slot />
+		</div>
+	</div>
+</BaseLayout>
+
+<style is:global>
+	#blog-container {
+		max-width: 840px;
+		margin: 0 auto;
+	}
+	#blog-container * {
+		font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+		font-style: normal;
+		line-height: 1.6;
+		letter-spacing: 0.01em;
+	}
+	#blog-container h3 {
+		font-weight: 500;
+		font-size: 36px;
+		line-height: 1.25;
+	}
+	#blog-container h4 {
+		font-weight: 500;
+		font-size: 24px;
+		line-height: 1.25;
+	}
+	#blog-container h5 {
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 1.25;
+		margin: 6px 0;
+	}
+	#blog-container code {
+		padding: 2px 6px;
+		background-color: var(--color-black-5-30);
+		border-radius: 6px;
+		color: #e16300;
+	}
+	#blog-container blockquote {
+		margin-block-start: 0.75em;
+		margin-block-end: 0.75em;
+		margin-inline-start: 1.5em;
+		margin-inline-end: 1.5em;
+	}
+	@media screen and (max-width: 768px) {
+		#blog-container blockquote {
+			margin-block-start: 0.5em;
+			margin-block-end: 0.5em;
+			margin-inline-start: 1em;
+			margin-inline-end: 1em;
+		}
+	}
+	#blog-container blockquote,
+	#blog-container blockquote p {
+		color: var(--color-black-4);
+	}
+	#blog-container blockquote,
+	#blog-container blockquote p,
+	#blog-container blockquote p a {
+		font-style: italic;
+	}
+
+	#blog-hero-image-container {
+		aspect-ratio: 10 / 5.5;
+		width: calc(100% - 16px);
+		margin: 8px 8px 0 8px;
+		border-radius: 24px;
+		overflow: hidden;
+	}
+
+	#blog-hero-image-container > img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		background-color: var(--color-black-5-20);
+	}
+
+	#blog-content-container {
+		padding: 12px 20px 20px;
+	}
+
+	#blog-content-container img {
+		border-radius: 24px;
+		width: 100%;
+	}
+</style>

@@ -54,7 +54,7 @@ const Experience = () => {
   >(presentExperience);
 
   const renderExpCommit = (
-    { year, proportion = 1, layer = 0, to }: typeof presentExperience,
+    { start, year, proportion = 1, layer = 0, to }: typeof presentExperience,
     index: number,
   ) => {
     const experiences =
@@ -69,13 +69,20 @@ const Experience = () => {
       + ${isLast ? '8px' : '0px'})
     `;
 
+    // For layer 1 (side project)
+    const marginLeft = `calc(100dvw * ${start / (start + proportion + branchLength)}`;
+
+    if (layer === 1) {
+      console.log({ start, proportion, branchLength });
+    }
+
     return (
       <div
         key={index}
         className={
           Styles.experience + ' ' + (isActive ? Styles.active : '') + ' tooltip'
         }
-        style={{ width }}
+        style={{ width, marginLeft: layer === 1 ? marginLeft : '' }}
         onMouseEnter={() => setActiveExp(experience)}
       >
         {layer === 0 && index === 0 ? (
@@ -137,17 +144,29 @@ const Experience = () => {
       <div className={Styles.experiences} style={{ zIndex: 100 }}>
         {mainBranchExperiences.map(renderExpCommit)}
       </div>
-      <div
+      {/* <div
         className={Styles.experiences}
-        style={{ zIndex: 50, textAlign: 'right' }}
+        style={{ zIndex: 50, textAlign: 'left' }}
       >
         {sideBranchExperiences.map(renderExpCommit)}
-      </div>
+      </div> */}
 
       {activeExp && (
         <div className={Styles.content}>
           {activeExp.company !== 'n/a' && (
-            <img src={activeExp.imageUrl} style={{ height: '60px' }} />
+            <div
+              style={{
+                maxWidth: '170px',
+                height: '60px',
+                paddingBottom: '4px',
+              }}
+            >
+              <img
+                src={activeExp.imageUrl}
+                alt={activeExp.company}
+                style={{ height: '100%' }}
+              />
+            </div>
           )}
           <h3>
             {activeExp.role}

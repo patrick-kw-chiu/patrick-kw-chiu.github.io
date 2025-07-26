@@ -1,20 +1,11 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 
+import { type LayoutProps } from '../types/types';
+
 import Contact from '../components/Contact/Contact.astro';
 
-interface Nav {
-	url: string;
-	title: string;
-	dotColor: string;
-}
-
-interface Props {
-	title?: string;
-	description?: string;
-	navs?: Nav[];
-	hasAnimation?: boolean;
-}
+type Props = LayoutProps
 
 const {
 	title = 'Patrick Chiu',
@@ -30,19 +21,17 @@ const {
 			title: 'Projects',
 			dotColor: 'typescript',
 		},
-		// {
-		// 	url: '/#contact',
-		// 	title: 'Contact',
-		// 	dotColor: 'nodejs',
-		// },
-		// {
-		// 	url: '/blog',
-		// 	title: 'Blog',
-		// 	dotColor: 'angular',
-		// },
+		{
+			url: '/blog',
+			title: 'Blog',
+			dotColor: 'angular',
+		},
 	],
 	hasAnimation = false,
+	frontmatter,
 } = Astro.props;
+
+console.log({ frontmatter})
 ---
 
 <!doctype html>
@@ -75,6 +64,7 @@ const {
 				--color-black-3: rgb(85, 85, 85);
 				--color-black-4: rgb(120, 120, 120);
 				--color-black-5: rgb(170, 170, 170);
+				--color-black-5-30: rgba(170, 170, 170, 0.3);
 				--color-black-5-20: rgba(170, 170, 170, 0.2);
 				--color-black-5-10: rgba(170, 170, 170, 0.1);
 				--color-black-7: rgb(222, 222, 222);
@@ -107,6 +97,10 @@ const {
 			a {
 				text-decoration: underline;
 				text-decoration-style: dashed;
+				color: var(--color-typescript);
+			}
+			a:hover {
+				color: var(--color-black-1);
 			}
 			h1 {
 				font-size: var(--font-size-h1);
@@ -154,7 +148,7 @@ const {
 				}
 			}
 
-			#loading-background {
+			/* #loading-background {
 				position: fixed;
 				background-color: var(--color-black-2);
 				width: 100vw;
@@ -162,7 +156,7 @@ const {
 				top: 0;
 				left: 0;
 				z-index: 1000;
-			}
+			} */
 			#page-shell {
 				position: relative;
 				background-color: var(--color-black-2);
@@ -360,11 +354,11 @@ const {
 				);
 			}
 			#footer {
-				padding: 24px;
+				padding: 36px 20px;
 				background-color: var(--color-black-2);-
 			}
 		</style>
-		<div id="loading-background"></div>
+		<!-- <div id="loading-background"></div> -->
 		<div id="page-shell">
 			<nav id="menu">
 				{
@@ -425,10 +419,6 @@ const {
 
 				window.sessionStorage.setItem('shouldShowAnimation', false);
 			}
-
-			const loadingBackgroundElement =
-				document.getElementById('loading-background');
-			loadingBackgroundElement.style.display = 'none';
 		</script>
 	</body>
 </html>
