@@ -5,7 +5,7 @@ import { type LayoutProps } from '../types/types';
 
 import Contact from '../components/Contact/Contact.astro';
 
-type Props = LayoutProps
+type Props = LayoutProps;
 
 const {
 	title = 'Patrick Chiu',
@@ -30,8 +30,6 @@ const {
 	hasAnimation = false,
 	frontmatter,
 } = Astro.props;
-
-console.log({ frontmatter})
 ---
 
 <!doctype html>
@@ -355,7 +353,7 @@ console.log({ frontmatter})
 			}
 			#footer {
 				padding: 36px 20px;
-				background-color: var(--color-black-2);-
+				background-color: var(--color-black-2);
 			}
 		</style>
 		<!-- <div id="loading-background"></div> -->

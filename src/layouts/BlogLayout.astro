@@ -14,8 +14,41 @@ type Props = LayoutProps & {
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout navs={frontmatter.navs ?? []}>
+<BaseLayout
+	navs={[
+		{ url: '/', title: 'Homepage', dotColor: 'typescript' },
+		{ url: '/blog', title: 'Blog', dotColor: 'angular' },
+	]}
+>
 	<div id="blog-container">
+		<button data-back-button>
+			<svg
+				viewBox="-19.04 0 75.803 75.803"
+				xmlns="http://www.w3.org/2000/svg"
+				fill="#000000"
+				width="16"
+				height="16"
+				style="transform: scale(0.85)"
+			>
+				<g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+					id="SVGRepo_tracerCarrier"
+					stroke-linecap="round"
+					stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+					<g
+						id="Group_64"
+						data-name="Group 64"
+						transform="translate(-624.082 -383.588)"
+					>
+						<path
+							id="Path_56"
+							data-name="Path 56"
+							d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
+							fill="#0c2c67"></path>
+					</g>
+				</g></svg
+			>
+			<span>Back</span>
+		</button>
 		<div id="blog-hero-image-container">
 			<img src={frontmatter.heroImagePath} />
 		</div>
@@ -27,10 +60,45 @@ const { frontmatter } = Astro.props;
 	</div>
 </BaseLayout>
 
+<script is:inline>
+	const init = () => {
+		const button = document.querySelector('[data-back-button]');
+		console.log({ button });
+		button?.addEventListener('click', () => {
+			window.history.back();
+		});
+	};
+	init();
+	document.addEventListener('astro:after-swap', init);
+</script>
+
 <style is:global>
 	#blog-container {
 		max-width: 840px;
 		margin: 0 auto;
+
+		[data-back-button] {
+			background-color: transparent;
+			border: 0px;
+			font-size: 18px;
+			display: flex;
+			align-items: center;
+			gap: 0.25rem;
+			margin-top: 1rem;
+			cursor: pointer;
+
+			span {
+				font-family: system-ui, sans-serif !important;
+			}
+
+			:hover {
+				text-decoration: underline;
+			}
+
+			* {
+				display: inline-block;
+			}
+		}
 	}
 	#blog-container * {
 		font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -54,7 +122,8 @@ const { frontmatter } = Astro.props;
 		line-height: 1.25;
 		margin: 6px 0;
 	}
-	#blog-container code {
+	#blog-container p > code,
+	#blog-container pre {
 		padding: 2px 6px;
 		background-color: var(--color-black-5-30);
 		border-radius: 6px;

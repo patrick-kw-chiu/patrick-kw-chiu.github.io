@@ -2,14 +2,9 @@
 layout: '../../layouts/BlogLayout.astro'
 title: 'PyScript Vs. Pyodide: Which Should You Use?'
 subtitle: Start with PyScript first if you are more of a Pythonic developer. Try Pyodide if you want to “Add some Python” to your JavaScript.
-date: May 10, 2022
+date: 2022/05/10
 tags: ['PyScript', 'Pyodide', 'Python', 'JavaScript', 'WASM']
 heroImagePath: '/images/blog/pyscript-vs-pyodide-which-should-you-use/hero.png'
-navs:
-  [
-    { url: '/', title: 'Homepage', dotColor: 'typescript' },
-    { url: '/blog', title: 'Blog', dotColor: 'angular' },
-  ]
 ---
 
 > Disclaimer: I created [SkyCube.app](https://skycube.app/) which is a Pyodide-powered ML tool that runs entirely in the browser. Also, my opinions (as of 2022/5/10) might be outdated soon, since I have full confidence that Anaconda will advance PyScript to the next level quickly :)
