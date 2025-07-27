@@ -36,18 +36,24 @@
         font-size: 24px !important;
         font-weight: 600;
         color: #242424 !important;
+        margin: 0;
+        padding: 0;
       }
 
       .subtitle {
         font-size: 16px !important;
         color: rgba(0, 0, 0, 0.8);
         font-weight: 300;
+        margin: 0;
+        padding: 0;
       }
 
       .date {
         font-size: 14px !important;
         color: rgba(0, 0, 0, 0.6);
         font-weight: 200;
+        margin: 0;
+        padding: 0;
       }
 
       .tags {

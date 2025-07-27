@@ -2,7 +2,7 @@
   {
     "title": "LowCMS",
     "tagline": "Instant CMS layer on top of your local JSONs",
-    "imageUrl": "/projects/low-cms.png",
+    "imageUrl": "/images/projects/low-cms.png",
     "url": "https://patrick-kw-chiu.github.io/lowcms",
     "notableTechStacks": [
       "TypeScript",
@@ -17,7 +17,7 @@
   {
     "title": "Cache Cloud",
     "tagline": "Fast serverless caching via HTTP endpoints, built on Cloudflare Workers, KV and Hono",
-    "imageUrl": "/projects/cash-cow.png",
+    "imageUrl": "/images/projects/cash-cow.png",
     "url": "https://github.com/patrick-kw-chiu/cache-cloud",
     "notableTechStacks": [
       "TypeScript",
@@ -32,7 +32,7 @@
   {
     "title": "mongo-http.js",
     "tagline": "A thin wrapper on Mongodb Atlas Data API using native fetch API",
-    "imageUrl": "/projects/mongo-http-2.js.png",
+    "imageUrl": "/images/projects/mongo-http-2.js.png",
     "url": "https://github.com/patrick-kw-chiu/mongo-http.js",
     "notableTechStacks": ["TypeScript", "MongoDB", "Jest"],
     "isLibrary": true,
@@ -41,7 +41,7 @@
   {
     "title": "<ActivityCalendarWidget />",
     "tagline": "A GitHub Activity Calendar component for React, Vue, Svelte, and more - built on Mitosis",
-    "imageUrl": "/projects/activity-calendar-widget.png",
+    "imageUrl": "/images/projects/activity-calendar-widget.png",
     "url": "https://github.com/patrick-kw-chiu/activity-calendar-widget",
     "notableTechStacks": ["JavaScript", "Motiosis"],
     "isLibrary": true,
@@ -51,7 +51,7 @@
   {
     "title": "SkyCube",
     "tagline": "No-code *entirely* browser-based Machine Learning tool for tabular data",
-    "imageUrl": "/projects/skycube.svg",
+    "imageUrl": "/images/projects/skycube.svg",
     "url": "https://skycube.app/",
     "notableTechStacks": [
       "JavaScript",
@@ -67,7 +67,7 @@
   {
     "title": "Medium Rare",
     "tagline": "Medium scrapper and searcher for Chinese articles",
-    "imageUrl": "/projects/medium-rare-logo-square.png",
+    "imageUrl": "/images/projects/medium-rare-logo-square.png",
     "url": "https://medium-rare.vercel.app",
     "notableTechStacks": [
       "JavaScript",

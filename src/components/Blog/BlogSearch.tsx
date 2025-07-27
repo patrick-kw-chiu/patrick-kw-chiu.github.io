@@ -21,10 +21,10 @@ const BlogSearch = ({
             <img src={post.frontmatter.heroImagePath} />
             <div className={Styles.info}>
               <a href={post.url}>
-                <div className={Styles.title}>{post.frontmatter.title}</div>
+                <h2 className={Styles.title}>{post.frontmatter.title}</h2>
               </a>
-              <div className={Styles.subtitle}>{post.frontmatter.subtitle}</div>
-              <div className={Styles.date}>{post.frontmatter.date}</div>
+              <h3 className={Styles.subtitle}>{post.frontmatter.subtitle}</h3>
+              <h6 className={Styles.date}>{post.frontmatter.date}</h6>
               {/* <div set:html={post.compiledContent()} /> */}
               <div className={Styles.tags}>
                 {post.frontmatter.tags.map((tag: string) => {

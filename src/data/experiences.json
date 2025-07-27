@@ -15,7 +15,7 @@
       "Rapid A/B testing to optimize the insurance checkout experience with annualized gross incremental revenue of ~USD 1.5M"
     ],
     "url": "https://priceline.com//",
-    "imageUrl": "/experiences/priceline.svg"
+    "imageUrl": "/images/experiences/priceline.svg"
   },
   {
     "company": "BenchSci",
@@ -33,7 +33,7 @@
       "Frontend specialist of Reagent Selectors (company's flagship product) and worked closely with the web apps infra team"
     ],
     "url": "https://www.benchsci.com/",
-    "imageUrl": "/experiences/benchsci.webp"
+    "imageUrl": "/images/experiences/benchsci.webp"
   },
   {
     "company": "Torche.io",
@@ -51,7 +51,7 @@
       "Led the full stack development of the school portal to enable student attributes experiment and populate school performance data"
     ],
     "url": "https://torche.io/",
-    "imageUrl": "/experiences/torche.webp"
+    "imageUrl": "/images/experiences/torche.webp"
   },
   {
     "company": "n/a",
@@ -85,6 +85,6 @@
       "Developed the Proof of concept (POC) of the Data Analytics Platform with Scikit-learn and Amazon ML service, which powers the customer analytics AI capability and serves API to the frontend interface"
     ],
     "url": "https://www.accenture.com/",
-    "imageUrl": "/experiences/accenture.webp"
+    "imageUrl": "/images/experiences/accenture.webp"
   }
 ]

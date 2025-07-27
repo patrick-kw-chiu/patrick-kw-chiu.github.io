@@ -55,6 +55,11 @@ const { frontmatter } = Astro.props;
 		<div id="blog-content-container">
 			<h3>{frontmatter.title}</h3>
 			<h4>{frontmatter.subtitle}</h4>
+			<h6>
+				<img src="/images/profile/fitz-3.jpeg" /> Patrick Chiu • {
+					frontmatter.date
+				}
+			</h6>
 			<slot />
 		</div>
 	</div>
@@ -122,6 +127,23 @@ const { frontmatter } = Astro.props;
 		line-height: 1.25;
 		margin: 6px 0;
 	}
+	#blog-container h6 {
+		font-size: 14px !important;
+		color: rgba(0, 0, 0, 0.6);
+		font-weight: 200;
+		margin: 6px 0;
+
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		img {
+			display: inline-block;
+			border-radius: 50%;
+			width: 24px;
+			height: 24px;
+		}
+	}
 	#blog-container p > code,
 	#blog-container pre {
 		padding: 2px 6px;
@@ -165,6 +187,7 @@ const { frontmatter } = Astro.props;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		/* object-fit: contain; */
 		background-color: var(--color-black-5-20);
 	}
 
