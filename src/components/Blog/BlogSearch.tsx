@@ -14,6 +14,7 @@ const BlogSearch = ({
 }) => {
   return (
     <div id={Styles.posts}>
+      <h2>Blog</h2>
       {posts.map((post) => {
         console.log({ post });
         return (

@@ -81,7 +81,6 @@ const { frontmatter } = Astro.props;
 	#blog-container {
 		max-width: 840px;
 		margin: 0 auto;
-
 		[data-back-button] {
 			background-color: transparent;
 			border: 0px;
@@ -104,6 +103,21 @@ const { frontmatter } = Astro.props;
 				display: inline-block;
 			}
 		}
+
+		table {
+			border-spacing: 0;
+			border: 1px solid var(--color-black-5-30);
+
+			th,
+			td {
+				border: 1px solid var(--color-black-5-30);
+				padding: 0.25rem 0.5rem;
+			}
+
+			th {
+				background-color: var(--color-black-7);
+			}
+		}
 	}
 	#blog-container * {
 		font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -115,17 +129,20 @@ const { frontmatter } = Astro.props;
 		font-weight: 500;
 		font-size: 36px;
 		line-height: 1.25;
+		padding-bottom: 1rem;
 	}
 	#blog-container h4 {
 		font-weight: 500;
 		font-size: 24px;
 		line-height: 1.25;
+		padding-bottom: 0.75rem;
 	}
 	#blog-container h5 {
 		font-weight: 500;
 		font-size: 20px;
 		line-height: 1.25;
 		margin: 6px 0;
+		padding-bottom: 0.5rem;
 	}
 	#blog-container h6 {
 		font-size: 14px !important;
@@ -150,6 +167,10 @@ const { frontmatter } = Astro.props;
 		background-color: var(--color-black-5-30);
 		border-radius: 6px;
 		color: #e16300;
+	}
+	#blog-container pre {
+		padding: 0.75rem;
+		font-size: 14px;
 	}
 	#blog-container blockquote {
 		margin-block-start: 0.75em;
