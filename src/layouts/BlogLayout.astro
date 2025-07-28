@@ -1,7 +1,10 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 
+import projects from '../data/projects.json';
+
 import { type LayoutProps } from '../types/types';
+import Project from '../components/Projects/Project.astro';
 
 type Props = LayoutProps & {
 	frontmatter: {
@@ -61,6 +64,19 @@ const { frontmatter } = Astro.props;
 				}
 			</h6>
 			<slot />
+		</div>
+		<div>
+			<div style="text-align: center;">
+				<h4>What's Next?</h4>
+				<h5 style="opacity: 0.6;">Try out some of my side projects below!</h5>
+			</div>
+			<div class="projects">
+				{
+					projects.slice(0, 2).map((project) => {
+						return <Project {...project} />;
+					})
+				}
+			</div>
 		</div>
 	</div>
 </BaseLayout>
@@ -196,6 +212,15 @@ const { frontmatter } = Astro.props;
 		font-style: italic;
 	}
 
+	#blog-container .projects {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: auto;
+		gap: 2rem;
+		padding: 1rem 2rem;
+	}
+
 	#blog-hero-image-container {
 		aspect-ratio: 10 / 5.5;
 		width: calc(100% - 16px);
@@ -207,9 +232,9 @@ const { frontmatter } = Astro.props;
 	#blog-hero-image-container > img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
-		/* object-fit: contain; */
-		background-color: var(--color-black-5-20);
+		/* object-fit: cover; */
+		object-fit: contain;
+		/* background-color: var(--color-black-5-20); */
 	}
 
 	#blog-content-container {
